@@ -1,3 +1,4 @@
+<%@page import="bean.loaibean"%>
 <%@page import="bo.giohanhbo"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="dao.sachdao"%>
@@ -21,6 +22,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 <%
 	giohanhbo Counttype=(giohanhbo)session.getAttribute("gh");
 	int Count=0;
@@ -61,7 +63,7 @@
 							dangxua="inline";
 						}
 						%>
-						<li><a href="DangNhap.jsp" style="display:<%=dangn %>" class="nav-link">login</a></li>
+						<li><a href="DangNhapController" style="display:<%=dangn %>" class="nav-link">login</a></li>
 						<li><a href="logout.jsp?logoutfrom=htsach.jsp" style="display:<%=dangxua %>"class="nav-link">Logout</a></li>
 						<li><a  class="nav-link" style="display:inline">Giỏ hàng(<%=Count%>)</a></li>
 					</ul>
@@ -70,9 +72,33 @@
 		</nav>
 	</header>
 <main style="margin-top:100px">
-	<table align="center" width = "1000">
-			<%sachbo sach= new sachbo();
-			ArrayList<sachbean> ds=sach.getsach();
+
+<div class="row">
+	<div class="col-2">
+	<ul class="list-group">
+		<%
+		if(request.getAttribute("ds")!=null)
+		{
+			ArrayList<loaibean> loai=new ArrayList<loaibean>();
+			loai=(ArrayList<loaibean>)request.getAttribute("loai");
+			int loaisize=loai.size();
+			for(int i=0;i<loaisize;i++){
+				loaibean listloai=loai.get(i);
+				%>
+				<li class="list-group-item"><a href="SachController?maloai=<%=listloai.getMaloai()%>"><%=listloai.getTenloai() %></a></li>
+				<%
+				//out.print(listloai.getTenloai());
+		}
+		//get loai sach
+		%>
+	</ul>
+	</div>
+	<div class="col-8">
+		<table align="center" width = "1000">
+			<%
+			//get sach
+			ArrayList<sachbean> ds= new ArrayList<sachbean>();
+			ds= (ArrayList<sachbean>)request.getAttribute("ds");
 			int ss=ds.size();
 			for(int i=0;i<ss;i++){
 				sachbean s = ds.get(i);
@@ -96,10 +122,38 @@
 						<a href="buynow.jsp?ms=<%=s.getMasach() %>&ts=<%=s.getTensach() %>&gia=<%=s.getGia() %>">
 			<img src='buynow.jpg'></a><hr>
 			</td> </tr>
-			<%} }%>
+			<%} }}
+			else
+			response.sendRedirect("SachController");%>
 		</td> 
 		
-</table>
+		</table>
+	</div>
+	<div class="col-2">
+		<form action="SachController">
+      		<input type="text" placeholder="Search.." name="search">
+      		<button type="submit">tìm kiếm</button>
+    	</form>
+	</div>
+</div>
 </main>
 </body>
+<%
+	/*int gt1=(int)request.getAttribute("gt1");
+	String gt2=(String)request.getAttribute("gt2");
+	String[] gt3=(String[]) request.getAttribute("gt3");
+	out.print("gt1="+gt1+"<hr>");
+	out.print("gt2="+gt2+"<hr>");
+	for(String st:gt3)
+		out.print(st+":");*/
+%>
+<%
+	/*ArrayList<sachbean>dstemp =(ArrayList<sachbean>)request.getAttribute("ds");*/
+%>
+<%
+	/*if(session.getAttribute("mail")!=null){
+		out.print("xinchao: "+session.getAttribute("mail"));
+	}*/
+%>
 </html>
+

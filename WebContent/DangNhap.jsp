@@ -19,7 +19,7 @@
 </head>
 <body>
 <%
-	String linkredirect="htsach.jsp";
+	String linkredirect="SachController";
 	System.out.print(session.getAttribute("linkdatmua"));
 	if(session.getAttribute("linkdatmua")!=null)
 	{
@@ -28,9 +28,9 @@
 	}
 	if(session.getAttribute("loginID")!=null)
 	{
-		response.sendRedirect("htsach.jsp");
+		response.sendRedirect("SachController");
 	}
-	if(request.getParameter("loginID")!=null){
+	/*if(request.getParameter("loginID")!=null){
 		Userbo accountbo= new Userbo();
 		Userbean account=accountbo.getuserbo();
 		if(request.getParameter("loginID").equals(account.getEmail())&&request.getParameter("password").equals(account.getPassword()))
@@ -41,7 +41,7 @@
 			response.sendRedirect(linkredirect);
 		}
 		
-	}
+	}*/
 %>
 	<header>
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
@@ -67,7 +67,7 @@
 		</nav>
 	</header>
 	<main>
-	<form action="DangNhap.jsp" class="hitec-form-signin" method="post">
+	<form action="DangnhapController" class="hitec-form-signin" method="post">
 		<div class="form-group">
 			<label for="loginID">Email:</label> <input type="text" id="loginID"
 				name="loginID" class="form-control input-lg" placeholder="Email"
