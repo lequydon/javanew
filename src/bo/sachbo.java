@@ -2,6 +2,7 @@ package bo;
 import java.util.ArrayList;
 
 import bean.sachbean;
+import bean.sachfullinfobean;
 import dao.sachdao;
 public class sachbo {
 	sachdao s=new sachdao();
@@ -29,5 +30,20 @@ public class sachbo {
 				tam.add(s);
 		}
 		return tam;
+	}
+	public int xoa(String masach) throws Exception {
+		return s.xoa(masach);
+	}
+	public int them(sachfullinfobean sach) throws Exception {
+		return s.Them(sach);
+	}
+	public int sua(sachfullinfobean sach) throws Exception {
+		return s.sua(sach);
+	}
+	public sachfullinfobean chon(String masach) throws Exception {
+		return s.chon(masach);
+	}
+	public ArrayList<sachfullinfobean> getfullsach(){
+		return s.getfullsach();
 	}
 }

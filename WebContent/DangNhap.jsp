@@ -69,8 +69,8 @@
 	<main>
 	<form action="DangnhapController" class="hitec-form-signin" method="post">
 		<div class="form-group">
-			<label for="loginID">Email:</label> <input type="text" id="loginID"
-				name="loginID" class="form-control input-lg" placeholder="Email"
+			<label for="loginID">Email hoặc tên đăng nhập:</label> <input type="text" id="loginID"
+				name="loginID" class="form-control input-lg" placeholder="Email hoặc tên đăng nhập"
 				required="" autofocus="" value="">
 		</div>
 		<div class="form-group">

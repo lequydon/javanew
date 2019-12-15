@@ -63,7 +63,7 @@
 							dangxua="inline";
 						}
 						%>
-						<li><a href="DangNhapController" style="display:<%=dangn %>" class="nav-link">login</a></li>
+						<li><a href="DangnhapController" style="display:<%=dangn %>" class="nav-link">login</a></li>
 						<li><a href="logout.jsp?logoutfrom=htsach.jsp" style="display:<%=dangxua %>"class="nav-link">Logout</a></li>
 						<li><a  class="nav-link" style="display:inline">Giỏ hàng(<%=Count%>)</a></li>
 					</ul>
@@ -72,7 +72,6 @@
 		</nav>
 	</header>
 <main style="margin-top:100px">
-
 <div class="row">
 	<div class="col-2">
 	<ul class="list-group">
@@ -93,7 +92,7 @@
 		%>
 	</ul>
 	</div>
-	<div class="col-8">
+	<div class="col-7">
 		<table align="center" width = "1000">
 			<%
 			//get sach
@@ -129,10 +128,10 @@
 		
 		</table>
 	</div>
-	<div class="col-2">
+	<div class="col-3">
 		<form action="SachController">
-      		<input type="text" placeholder="Search.." name="search">
-      		<button type="submit">tìm kiếm</button>
+      		<input type="text" placeholder="Search.." style="border-radius: 4px;border: 1px solid #adbfa3;padding-left: 2px;" name="search">
+      		<button type="submit" style="background-color: #343a40;color:white;border: 1px solid #adbfa3;border-radius: 4px;">tìm kiếm</button>
     	</form>
 	</div>
 </div>

@@ -35,7 +35,7 @@ public class SachController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
  sachbo sbo= new sachbo();
- loaibo lbo=new loaibo();
+ loaibo lbo= new loaibo();
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//đảm bảo trả về tiếng việt
@@ -56,7 +56,6 @@ public class SachController extends HttpServlet {
 			System.out.print(ds);
 			if(ml!=null)
 			{
-				
 				ds=sbo.timsach(ml);
 			}
 		}

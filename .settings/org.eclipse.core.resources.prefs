@@ -1,9 +1,11 @@
 eclipse.preferences.version=1
 encoding//WebContent/BangCuuChuong.jsp=UTF-8
+encoding//WebContent/SachAdminpage.jsp=UTF-8
 encoding//WebContent/Testconectjdbc.jsp=UTF-8
 encoding//WebContent/datmua.jsp=UTF-8
 encoding//WebContent/htgio.jsp=UTF-8
 encoding//WebContent/htsach.jsp=UTF-8
+encoding//src/Controller/DangnhapController.java=UTF-8
 encoding//src/Controller/SachController.java=UTF-8
 encoding//src/dao/DungChung.java=UTF-8
 encoding//src/dao/loaidao.java=UTF-8

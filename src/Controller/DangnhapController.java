@@ -33,10 +33,13 @@ public class DangnhapController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		System.out.print("test thử");
 		if(request.getParameter("loginID")!=null){
 			Userbo accountbo= new Userbo();
-			Userbean account=accountbo.getuserbo();
-			if(request.getParameter("loginID").equals(account.getEmail())&&request.getParameter("password").equals(account.getPassword()))
+			Userbean accountinfo=new Userbean(request.getParameter("loginID"), request.getParameter("password"));
+			String accountad=accountbo.getuserbo(accountinfo);
+			System.out.print(accountad);
+			if(accountad.equals("0"))
 			{
 				HttpSession session=request.getSession();
 				session.removeAttribute("linkdatmua");
@@ -44,6 +47,8 @@ public class DangnhapController extends HttpServlet {
 				session.setAttribute("password", request.getParameter("password"));
 				response.sendRedirect("SachController");
 			}
+			if(accountad.equals("1"))
+				response.sendRedirect("redirectadmin.jsp");
 			
 		}else
 			response.sendRedirect("DangNhap.jsp");
